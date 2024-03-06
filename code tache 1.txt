@@ -1,0 +1,91 @@
+def max_power(file_device):
+    "in : path to csv file, string"
+    "out : 1 or 0 : boolean if device is used during the night or not"
+    "night : from 10pm to 6am"
+    
+    df = pd.read_csv(file_device, parse_dates=['timestamp'])
+
+    mseries = df.resample('1t', on='timestamp').power.sum()
+    df  = pd.DataFrame({'timestamp': mseries.index, 'power': mseries.values})
+    
+    #df['time'] = df['timestamp'].dt.time
+
+    max_power = df.values.max()
+
+    return max_power
+
+
+def use_time(file_device):
+    "in : path to csv file, string"
+    "out : 1 or 0 : boolean if device is used during the night or not"
+    "night : from 10pm to 6am"
+    
+    df = pd.read_csv(file_device, parse_dates=['timestamp'])
+
+    mseries = df.resample('1t', on='timestamp').power.sum()
+    df  = pd.DataFrame({'timestamp': mseries.index, 'power': mseries.values})
+    
+    df['time'] = df['timestamp'].dt.time
+
+    time_use=0
+    number_of_use=0
+    in_functionment=False
+
+    for i in df.index:
+        if df['power'][i]!=0: 
+            time_use+=1
+        if not in_functionment and df['power'][i] >= 0:
+            in_functionment = True
+            number_of_use += 1
+        elif in_functionment and consommation <= 0:
+            in_functionment = False
+
+    use_time=time_use/number_of_use
+
+    return use_time
+
+
+def period_use(file_device):
+    "in : path to csv file, string"
+    "out : 1 or 0 : boolean if device is used during the night or not"
+    "night : from 10pm to 6am"
+    
+    df = pd.read_csv(file_device, parse_dates=['timestamp'])
+
+    mseries = df.resample('1t', on='timestamp').power.sum()
+    df  = pd.DataFrame({'timestamp': mseries.index, 'power': mseries.values})
+    
+    df['time'] = df['timestamp'].dt.time
+
+    use_morning=0
+    use_lunch=0
+    use_afternoon=0
+    use_evening=0
+    use_night=0
+
+for i in df.index:
+        if not in_functionment and df['power'][i] >= 0:
+            in_functionment = True
+            if df['time'][i] < datetime.strptime('11:00:00', '%H:%M:%S').time():
+                use_morning+=1
+            elif df['time'][i] < datetime.strptime('14:00:00', '%H:%M:%S').time():
+                use_lunch+=1
+            elif heure < datetime.strptime('18:30:00', '%H:%M:%S').time():
+                use_afternoon+=1
+            elif heure < datetime.strptime('22:30:00', '%H:%M:%S').time():
+                use_evening+=1
+            else:
+                use_night=0
+        elif in_functionment and consommation <= 0:
+            in_functionment = False
+
+    if use_morning=max(use_morning,use_lunch,use_afternoon,use_evening,use_night):
+        return 'morning'
+    elif use_lunch=max(use_morning,use_lunch,use_afternoon,use_evening,use_night):
+        return 'lunch'
+    elif use_afternoon=max(use_morning,use_lunch,use_afternoon,use_evening,use_night):
+        return 'afternoon'
+    elif use_evening=max(use_morning,use_lunch,use_afternoon,use_evening,use_night):
+        return 'evening'
+    elif use_night=max(use_morning,use_lunch,use_afternoon,use_evening,use_night):
+        return 'night'

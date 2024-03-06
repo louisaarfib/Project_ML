@@ -1,0 +1,39 @@
+git merge name_branche
+-> pour merge name_branch with the main branch
+
+git push 
+-> to download you modifications online and share them with others 
+
+git pull 
+-> to download the modifications made by others 
+
+/!\ To push and pull you need to be connected to internet
+
+git branch 
+-> to find out on which you are 
+
+git checkout name_branche 
+-> to change branch and go to the branch name_branch
+
+Ctr + C
+-> to stop a running code (when your code is bugging)
+
+git branch -d name_branch
+-> to delete a branch 
+
+git add
+-> to add the modifications
+
+git add . 
+-> to add all the elements
+
+git commit -m "message"
+-> to submit you modification with a text explaining what modifications you did 
+
+Steps to follow at tthe end of a work to submit/merge it:
+- git checkout main 
+- git pull
+- git merge
+- git push
+
+/!\ always pull avant push
