@@ -7,8 +7,8 @@ Group Project of Machine Learning.
 
 # file explaination
 
-1. Classification_device is the notebook that contains all the classifiers for classification based on appliances.
-2. Classification_category is the notebook that contain all the classifiers for classification based on categories.
+1. Classification_device is the notebook that contains all the classifiers (except for Random forest) for classification based on appliances.
+2. Classification_category is the notebook that contain all the classifiers (except for Random forest) for classification based on categories.
 3. Classification_category_without_other is the notebook that contain all the classifiers for classification based on categories without considering the category called "other".
 4. data_week_minute_printer is the notebook that contains the code for dividing the original month long data into weeks and summing the second long data up into minute long data.
 5. exploration_data is the notebook where we explore the data, to try and come up with ways of categorizing it and what features would make sense.
