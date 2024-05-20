@@ -1,6 +1,8 @@
 # Project_ML
 Group Project of Machine Learning.
 
+If you have never opened this project before, and therefore have none of the csv files downloaded then follow all the steps below. If you already have the "csv_files_1week" and the "household_power_consumption" folders then go directly to step 3.
+
 1- Create a folder in your local depository called household_power_consumption with all the data from the  kaggle dataset https://www.kaggle.com/datasets/ecoco2/household-appliances-power-consumption . This file is very heavy and is ignored with the .gitignore file on the remote depository.
 
 2- Create an empty folder in your local depository called csv_files_1week. Launch the file data_week_minute_printer.ipynb. All the files containing one week of data with a 1-min timestamp should be added to the folder. This operation takes about 20 minutes.
